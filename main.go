@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	var ntpdserver = flag.String("server", "127.0.0.1", "ntpd server")
+	var ntpdserver = flag.String("server", "0.pool.ntp.org", "ntpd server")
 	var format = flag.String("format", "datetime", "output format, one of: unixnsec|unixmsec|unixsec|datetime")
 	flag.Parse()
 
@@ -25,7 +25,7 @@ func main() {
 	case "unixnsec":
 		fmt.Println(t.UnixNano())
 	case "unixmsec":
-		fmt.Println(t.UnixNano() / 100000)
+		fmt.Println(t.UnixNano() / 1000000)
 	case "unixsec":
 		fmt.Println(t.Unix())
 	case "datetime":
