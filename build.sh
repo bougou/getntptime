@@ -3,9 +3,9 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 function build() {
-  GOOS=$1
-  GOARCH=$2
-  go build -v -x -o ${SCRIPT_DIR}/getntptime-${GOOS}-${GOARCH}
+  local os=$1
+  local arch=$2
+  GOOS=${os} GOARCH=${arch} go build -v -x -o ${SCRIPT_DIR}/getntptime-${os}-${arch}
 }
 
 build linux amd64
